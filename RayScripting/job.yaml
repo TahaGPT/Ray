@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: price-prediction-model
+spec:
+  template:
+    spec:
+      containers:
+      - name: price-prediction-model-continer
+        image: alicodes02/price-prediction
+        imagePullPolicy: Never
+        env:
+        - name: RAY_ADDRESS
+          value: "auto"
+      restartPolicy: Never
